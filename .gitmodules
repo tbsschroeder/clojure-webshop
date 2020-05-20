@@ -1,0 +1,6 @@
+[submodule "clojure-webshop-api"]
+	path = clojure-webshop-api
+	url = https://github.com/tbsschroeder/clojure-webshop-api
+[submodule "clojure-webshop-ui"]
+	path = clojure-webshop-ui
+	url = https://github.com/tbsschroeder/clojure-webshop-ui
