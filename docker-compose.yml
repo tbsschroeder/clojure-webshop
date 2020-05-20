@@ -30,12 +30,15 @@ services:
       dockerfile: Dockerfile
     restart: "always"
     ports:
-      - "3000:3000"
+      - "3449:3449"
+      - "7888:7888"
     environment:
       - "DB_HOST=db"
       - "WEB_HOST=0.0.0.0"
     volumes:
-      - clojure-webshop-ui:/usr/src/app
-      - clojure-webshop-ui/mvn_cache:/root/.m2
+      - clojure-webshop-ui:/clj
     depends_on:
       - db
+
+volumes:
+  clojure-webshop-ui:
