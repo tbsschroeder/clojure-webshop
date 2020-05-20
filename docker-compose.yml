@@ -13,20 +13,20 @@ services:
 
   clj:
     build:
-      context: ./backend
+      context: ./clojure-webshop-api
       dockerfile: Dockerfile
     environment:
       - "DB_HOST=db"
       - "WEB_HOST=0.0.0.0"
     ports:
-      - "8080:8080"
-    command: java -jar app.jar
+      - "3000:3000"
+    command: java -jar server.jar
     depends_on:
       - db
 
   ui:
     build:
-      context: ./frontend
+      context: ./clojure-webshop-ui
       dockerfile: Dockerfile
     restart: "always"
     ports:
@@ -34,5 +34,8 @@ services:
     environment:
       - "DB_HOST=db"
       - "WEB_HOST=0.0.0.0"
+    volumes:
+      - clojure-webshop-ui:/usr/src/app
+      - clojure-webshop-ui/mvn_cache:/root/.m2
     depends_on:
       - db
